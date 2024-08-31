@@ -176,6 +176,7 @@ header {
     text-transform: uppercase;
     text-decoration: none; /* Remove underline */
     transition: all 0.3s ease; /* Smooth hover transition */
+    align-items: center;
     cursor: pointer; /* Change cursor to pointer on hover */
 }
 
@@ -268,7 +269,7 @@ header {
     width: 100%; /* Full width in grid cell */
     height: 100%; /* Full height in grid cell */
 
-   
+    
 }
 
 
