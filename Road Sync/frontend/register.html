@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Road Sync</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('../assets/login.png') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: brightness(50%);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            color: #007B8F;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .input-field {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            width: 100%;
+            color: #000;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #53a8b6;
+            outline: none;
+        }
+
+        .file-input {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #000;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.3s ease;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .file-input::file-selector-button {
+            background: #53a8b6;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            border: none;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-input::file-selector-button:hover {
+            background-color: #007B8F;
+        }
+
+        .button {
+            background-color: #53a8b6;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            margin-top: 0.75rem;
+        }
+
+        .button:hover {
+            background-color: #007B8F;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <div class="logo">REGISTER</div>
+        <form id="registerForm" action="/register" method="POST" enctype="multipart/form-data">
+            <input type="text" id="username" name="username" placeholder="Username" class="input-field" required>
+            <input type="email" id="email" name="email" placeholder="Email" class="input-field" required>
+            <input type="password" id="password" name="password" placeholder="Password" class="input-field" required>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" class="input-field" required>
+            <input type="text" id="company-name" name="company-name" placeholder="Company Name (if applicable)" class="input-field">
+            <input type="text" id="company-type" name="company-type" placeholder="Type of Company (if applicable)" class="input-field">
+            <input type="number" id="number-of-trucks" name="number-of-trucks" placeholder="Number of Trucks (if applicable)" class="input-field">
+            <input type="number" id="monthly-revenue" name="monthly-revenue" placeholder="Monthly Revenue (if applicable)" class="input-field">
+            <input type="text" id="company-location" name="company-location" placeholder="Location of Company (if applicable)" class="input-field">
+
+            <label for="profilePicture" class="block text-left text-gray-700 font-medium">Upload Your Picture:</label>
+            <input type="file" id="profilePicture" name="profilePicture" class="file-input" accept="image/*" required>
+
+            <button type="submit" class="button">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                alert('Passwords do not match');
+            }
+        });
+    </script>
+</body>
+</html>
